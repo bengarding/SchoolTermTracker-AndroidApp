@@ -2,6 +2,7 @@ package com.bengarding.wgutermtracker.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -15,7 +16,7 @@ public class Term {
 
     @ColumnInfo(name = Constant.TERMS_COL_ID)
     @PrimaryKey(autoGenerate = true)
-    private int termId;
+    public int termId;
 
     @ColumnInfo(name = Constant.TERMS_COL_NAME)
     private String name;
@@ -33,6 +34,10 @@ public class Term {
         this.name = name;
         this.start = start;
         this.end = end;
+    }
+
+    @Ignore
+    public Term() {
     }
 
     public int getTermId() {

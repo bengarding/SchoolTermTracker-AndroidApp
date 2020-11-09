@@ -2,6 +2,7 @@ package com.bengarding.wgutermtracker.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.bengarding.wgutermtracker.database.Constant;
@@ -26,6 +27,10 @@ public class Mentor {
         this.name = name;
         this.phone = phone;
         this.email = email;
+    }
+
+    @Ignore
+    public Mentor() {
     }
 
     public int getMentorId() {

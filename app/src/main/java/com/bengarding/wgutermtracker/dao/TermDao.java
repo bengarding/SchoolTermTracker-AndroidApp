@@ -3,6 +3,7 @@ package com.bengarding.wgutermtracker.dao;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -12,13 +13,13 @@ import java.util.List;
 
 @Dao
 public interface TermDao {
-    @Query("SELECT * FROM terms ORDER BY id")
+    @Query("SELECT * FROM terms ORDER BY term_id")
     List<Term> getAllTerms();
 
-    @Query("SELECT * FROM terms WHERE id = :termId ORDER BY id")
+    @Query("SELECT * FROM terms WHERE term_id = :termId ORDER BY term_id")
     Term getTerm(int termId);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTerm(Term term);
 
     @Insert
@@ -31,5 +32,5 @@ public interface TermDao {
     void deleteTerm(Term term);
 
     @Query("DELETE FROM terms")
-    public void nukeTermTable();
+    void nukeTermTable();
 }

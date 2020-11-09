@@ -13,6 +13,9 @@ import java.util.List;
 @Dao
 public interface MentorDao {
 
+    @Query("SELECT * FROM mentors WHERE mentor_id = :mentorId")
+    Mentor getMentor(int mentorId);
+
     @Query("SELECT * FROM mentors ORDER BY name")
     List<Mentor> getAllMentors();
 
@@ -29,5 +32,5 @@ public interface MentorDao {
     void deleteMentor(Mentor mentor);
 
     @Query("DELETE FROM mentors")
-    public void nukeMentorTable();
+    void nukeMentorTable();
 }

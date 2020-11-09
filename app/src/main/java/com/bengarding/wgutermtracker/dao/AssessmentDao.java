@@ -13,7 +13,10 @@ import java.util.List;
 @Dao
 public interface AssessmentDao {
 
-    @Query("SELECT * FROM assessments ORDER BY id")
+    @Query("SELECT * FROM assessments WHERE assessment_id = :assessmentId")
+    Assessment getAssessment(int assessmentId);
+
+    @Query("SELECT * FROM assessments ORDER BY assessment_id")
     List<Assessment> getAllAssessments();
 
     @Insert
@@ -29,5 +32,5 @@ public interface AssessmentDao {
     void deleteAssessment(Assessment assessment);
 
     @Query("DELETE FROM assessments")
-    public void nukeAssessmentTable();
+    void nukeAssessmentTable();
 }

@@ -3,6 +3,7 @@ package com.bengarding.wgutermtracker.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -47,6 +48,10 @@ public class Assessment {
         this.date = date;
         this.reminder = reminder;
         this.courseId = courseId;
+    }
+
+    @Ignore
+    public Assessment() {
     }
 
     public int getAssessmentId() {

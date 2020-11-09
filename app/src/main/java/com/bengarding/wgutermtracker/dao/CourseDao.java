@@ -12,14 +12,14 @@ import java.util.List;
 
 @Dao
 public interface CourseDao {
-    @Query("SELECT * FROM courses WHERE term_id = :termId ORDER BY id")
+    @Query("SELECT * FROM courses WHERE term_id = :termId ORDER BY course_id")
     List<Course> getCourseList(int termId);
 
-    @Query("SELECT * FROM courses WHERE term_id = :termId AND id = :courseId")
+    @Query("SELECT * FROM courses WHERE term_id = :termId AND course_id = :courseId")
     Course getCourse(int termId, int courseId);
 
-    @Query("INSERT INTO courses (term_id, name) VALUES(:termId, \"Course Name\"); ")
-    void addCourse(int termId);
+//    @Query("INSERT INTO courses (term_id, name) VALUES(:termId, \"Course Name\"); ")
+//    void addCourse(int termId);
 
     @Query("SELECT * FROM courses")
     List<Course> getAllCourses();
@@ -37,5 +37,5 @@ public interface CourseDao {
     void deleteCourse(Course course);
 
     @Query("DELETE FROM courses")
-    public void nukeCourseTable();
+    void nukeCourseTable();
 }
