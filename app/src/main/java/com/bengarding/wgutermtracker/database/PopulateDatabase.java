@@ -73,6 +73,7 @@ public class PopulateDatabase extends AppCompatActivity {
         Course sampleCourse3 = new Course();
         List<Term> termList = dbRepo.getTermList();
         if (termList == null) {
+            Log.d(TAG, "insertCourses: termList is null");
             return;
         }
 
@@ -87,11 +88,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setStart(start.getTime());
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Completed");
-        sampleCourse1.setNotes("Introduction to IT examines information technology as a discipline and the " +
-                "various roles and functions of the IT department as business support. Students are presented " +
-                "with various IT disciplines including systems and services, network and security, scripting " +
-                "and programming, data management, and business of IT, with a survey of technologies in every " +
-                "area and how they relate to each other and to the business.");
+        sampleCourse1.setNotes("Sample notes");
         sampleCourse1.setMentorId(1);
         sampleCourse1.setTermId(termList.get(0).getTermId());
 
@@ -103,10 +100,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setStart(start.getTime());
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("Completed");
-        sampleCourse2.setNotes("Scripting and Programming Foundations provides an introduction to programming, " +
-                "covering basic elements such as variables, data types, flow control, and design concepts. The " +
-                "course is language-agnostic in nature, ending in a survey of languages and introduces the distinction " +
-                "between interpreted and compiled languages. There are no prerequisites for this course.");
+        sampleCourse2.setNotes("Sample notes");
         sampleCourse2.setMentorId(2);
         sampleCourse2.setTermId(termList.get(0).getTermId());
 
@@ -118,9 +112,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setStart(start.getTime());
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Dropped");
-        sampleCourse3.setNotes("This course introduces students to web design and development by presenting them with HTML5 " +
-                "and Cascading Style Sheets (CSS), the foundational languages of the web, by reviewing media " +
-                "strategies and by using tools and techniques commonly employed in web development.");
+        sampleCourse3.setNotes("Sample notes");
         sampleCourse3.setMentorId(3);
         sampleCourse3.setTermId(termList.get(0).getTermId());
 
@@ -134,10 +126,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setStart(start.getTime());
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Completed");
-        sampleCourse1.setNotes("Software I builds object-oriented programming expertise and introduces powerful " +
-                "new tools for Java application development. You will learn about and put into action class design, " +
-                "exception handling, and other object-oriented principles and constructs to develop software that meets " +
-                "business requirements. This course requires foundational knowledge of object-oriented programming and the Java language.");
+        sampleCourse1.setNotes("Sample notes");
         sampleCourse1.setMentorId(1);
         sampleCourse1.setTermId(termList.get(1).getTermId());
 
@@ -149,11 +138,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setStart(start.getTime());
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("In Progress");
-        sampleCourse2.setNotes("Software II - Advanced Java Concepts refines object-oriented programming expertise " +
-                "and builds database and file server application development skills. You will learn about and put into " +
-                "action lambda expressions, collections, input/output, advanced error handling, and the newest features " +
-                "of Java 8 to develop software that meets business requirements. This course requires intermediate " +
-                "expertise in object-oriented programming and the Java language.");
+        sampleCourse2.setNotes("Sample notes");
         sampleCourse2.setMentorId(2);
         sampleCourse2.setTermId(termList.get(1).getTermId());
 
@@ -165,11 +150,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setStart(start.getTime());
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Plan to Take");
-        sampleCourse3.setNotes("This course introduces students to programming for mobile devices using a " +
-                "software development kit (SDK). Students with previous knowledge of programming will learn " +
-                "how to install and utilize a SDK, build a basic mobile application, build a mobile application " +
-                "using a graphical user interface (GUI), adapt applications to different mobile devices, save " +
-                "data, execute and debug mobile applications using emulators, and deploy a mobile application.");
+        sampleCourse3.setNotes("Sample notes");
         sampleCourse3.setMentorId(3);
         sampleCourse3.setTermId(termList.get(1).getTermId());
 
@@ -183,15 +164,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setStart(start.getTime());
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Plan to Take");
-        sampleCourse1.setNotes("This course introduces the concepts of software engineering to students who " +
-                "have completed the core courses in programming and project management. The principles build " +
-                "on previously acquired concepts, switching the emphasis from programming simple routines to " +
-                "engineering robust and scalable software solutions. This course does not cover programming, but " +
-                "provides an overview of software engineering processes and their challenging nature, focusing on " +
-                "the need for a disciplined approach to software engineering. A generic process framework provides " +
-                "the groundwork for formal process models. Prescriptive process models such as the waterfall model " +
-                "and agile development are included. An introduction to the elements and phases of software engineering " +
-                "is included, which explores requirements for engineering, design concepts, and software quality.");
+        sampleCourse1.setNotes("Sample notes");
         sampleCourse1.setMentorId(1);
         sampleCourse1.setTermId(termList.get(2).getTermId());
 
@@ -203,12 +176,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setStart(start.getTime());
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("Plan to Take");
-        sampleCourse2.setNotes("User Experience Design explores multiple tools and techniques used in user " +
-                "experience design. Students are presented with an in-depth view of activities involved in " +
-                "the design of user experience and have the opportunity to create several deliverables including " +
-                "persona profiles, information architectures, and prototypes of different levels of fidelity. In " +
-                "addition, the course also covers usability testing and the evaluation of quantitative and " +
-                "qualitative data derived from these and other experiments.");
+        sampleCourse2.setNotes("Sample notes");
         sampleCourse2.setMentorId(2);
         sampleCourse2.setTermId(termList.get(2).getTermId());
 
@@ -220,14 +188,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setStart(start.getTime());
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Plan to Take");
-        sampleCourse3.setNotes("Software Quality Assurance applies a QA focus to every phase of the software " +
-                "development life cycle. This course investigates best practices for quality analysis, quality " +
-                "planning, and testing strategies as they pertain to the everyday practice of software development. " +
-                "Students will come to understand how their work fits into the bigger picture: how QA, testing, and " +
-                "code-writing practices interact within specific process models; the potential impact of new code " +
-                "on existing code or on other applications; the importance of usability, and the influence users have " +
-                "on the ultimate success of an application. Students will explore test plans, test cases, unit tests, " +
-                "integration tests, regression tests, usability tests, and test and review tools.");
+        sampleCourse3.setNotes("Sample notes");
         sampleCourse3.setMentorId(3);
         sampleCourse3.setTermId(termList.get(2).getTermId());
 
@@ -243,11 +204,13 @@ public class PopulateDatabase extends AppCompatActivity {
 
         List<Term> termList = dbRepo.getTermList();
         if (termList == null) {
+            Log.d(TAG, "insertAssessments: termList returned null");
             return;
         }
 
         List<Course> courseList = dbRepo.getCourseList(termList.get(0).getTermId());
         if (courseList == null) {
+            Log.d(TAG, "insertAssessments: courseList returned null");
             return;
         }
 
@@ -322,6 +285,7 @@ public class PopulateDatabase extends AppCompatActivity {
 
         courseList = dbRepo.getCourseList(termList.get(1).getTermId());
         if (courseList == null) {
+            Log.d(TAG, "insertAssessments: courseList returned null");
             return;
         }
 
@@ -396,6 +360,7 @@ public class PopulateDatabase extends AppCompatActivity {
 
         courseList = dbRepo.getCourseList(termList.get(2).getTermId());
         if (courseList == null) {
+            Log.d(TAG, "insertAssessments: courseList returned null");
             return;
         }
 

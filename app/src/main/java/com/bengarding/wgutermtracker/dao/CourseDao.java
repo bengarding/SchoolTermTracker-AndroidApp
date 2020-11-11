@@ -3,6 +3,7 @@ package com.bengarding.wgutermtracker.dao;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -12,10 +13,10 @@ import java.util.List;
 
 @Dao
 public interface CourseDao {
-    @Query("SELECT * FROM courses WHERE term_id = :termId ORDER BY course_id")
+    @Query("SELECT * FROM courses WHERE term_id=:termId ORDER BY course_id")
     List<Course> getCourseList(int termId);
 
-    @Query("SELECT * FROM courses WHERE term_id = :termId AND course_id = :courseId")
+    @Query("SELECT * FROM courses WHERE term_id=:termId AND course_id = :courseId")
     Course getCourse(int termId, int courseId);
 
 //    @Query("INSERT INTO courses (term_id, name) VALUES(:termId, \"Course Name\"); ")
@@ -27,7 +28,7 @@ public interface CourseDao {
     @Insert
     void insertCourse(Course course);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertAllCourses(Course... course);
 
     @Update

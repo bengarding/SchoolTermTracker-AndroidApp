@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PopulateDatabase populateDatabase = new PopulateDatabase();
-        populateDatabase.populate(MainActivity.this);
+//        WguDatabaseRepository repository = new WguDatabaseRepository(getApplication());
+//        repository.nukeAllTables();
     }
 
     public void populate(View view) {
+        PopulateDatabase populateDatabase = new PopulateDatabase();
+        populateDatabase.populate(MainActivity.this);
 
     }
 }

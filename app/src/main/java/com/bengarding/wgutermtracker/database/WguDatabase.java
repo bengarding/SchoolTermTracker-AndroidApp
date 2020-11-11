@@ -19,7 +19,7 @@ import com.bengarding.wgutermtracker.entity.Term;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Term.class, Course.class, Mentor.class, Assessment.class}, exportSchema = false, version = 2)
+@Database(entities = {Term.class, Course.class, Mentor.class, Assessment.class}, exportSchema = false, version = 1)
 @TypeConverters(DateTypeConverter.class)
 public abstract class WguDatabase extends RoomDatabase {
 
@@ -27,16 +27,15 @@ public abstract class WguDatabase extends RoomDatabase {
     public abstract CourseDao courseDao();
     public abstract MentorDao mentorDao();
     public abstract AssessmentDao assessmentDao();
-    public static final int NUMBER_OF_THREADS = 4;
 
-    static final ExecutorService dbWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    static final ExecutorService dbWriteExecutor = Executors.newSingleThreadExecutor();
 
     private static volatile WguDatabase instance;
 
     public static synchronized WguDatabase getInstance(Context context){
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(), WguDatabase.class, Constant.DATABASE_NAME)
-                    .fallbackToDestructiveMigration().build();
+                    .allowMainThreadQueries().fallbackToDestructiveMigration().build();
         }
         return instance;
     }

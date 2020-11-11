@@ -22,7 +22,8 @@ import static androidx.room.ForeignKey.CASCADE;
                         onDelete = CASCADE),
                 @ForeignKey(entity = Mentor.class,
                         parentColumns = Constant.MENTOR_COL_ID,
-                        childColumns = Constant.COURSES_COL_MENTOR_ID)
+                        childColumns = Constant.COURSES_COL_MENTOR_ID,
+                onDelete = CASCADE)
         })
 public class Course {
 
