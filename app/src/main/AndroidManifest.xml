@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WGUTermTracker">
+        <activity android:name=".ui.TermActivity"
+            android:label="Terms"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

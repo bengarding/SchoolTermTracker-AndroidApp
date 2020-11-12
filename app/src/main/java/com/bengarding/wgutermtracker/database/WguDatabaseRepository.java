@@ -32,6 +32,7 @@ public class WguDatabaseRepository {
     private Assessment assessment;
     private Mentor mentor;
 
+
     public WguDatabaseRepository(Application application) {
         WguDatabase db = WguDatabase.getInstance(application);
         termDao = db.termDao();
@@ -45,14 +46,7 @@ public class WguDatabaseRepository {
     }
 
     public List<Term> getTermList() {
-            executor.execute(() -> {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-            return termDao.getAllTerms();
+        return termDao.getAllTerms();
     }
 
     public Course getCourse(int termId, int courseId) {
@@ -64,13 +58,6 @@ public class WguDatabaseRepository {
     }
 
     public List<Course> getCourseList(int termId) {
-        executor.execute(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
         return courseDao.getCourseList(termId);
     }
 
@@ -87,13 +74,6 @@ public class WguDatabaseRepository {
     }
 
     public List<Mentor> getAllMentors() {
-        executor.execute(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
         return mentorDao.getAllMentors();
     }
 
@@ -102,14 +82,7 @@ public class WguDatabaseRepository {
     }
 
     public void insert(Term... terms) {
-        executor.execute(() -> {
-            termDao.insertAllTerms(terms);
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
+        termDao.insertAllTerms(terms);
     }
 
     public void insert(Course course) {
@@ -125,7 +98,7 @@ public class WguDatabaseRepository {
     }
 
     public void insert(Assessment... assessments) {
-            assessmentDao.insertAllAssessments(assessments);
+        assessmentDao.insertAllAssessments(assessments);
     }
 
     public void insert(Mentor mentor) {
@@ -133,14 +106,7 @@ public class WguDatabaseRepository {
     }
 
     public void insert(Mentor... mentors) {
-        executor.execute(() -> {
-            mentorDao.insertAllMentors(mentors);
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
+        mentorDao.insertAllMentors(mentors);
     }
 
     public void update(Term term) {
@@ -176,11 +142,9 @@ public class WguDatabaseRepository {
     }
 
     public void nukeAllTables() {
-        executor.execute(() -> {
             termDao.nukeTermTable();
             courseDao.nukeCourseTable();
             assessmentDao.nukeAssessmentTable();
             mentorDao.nukeMentorTable();
-        });
     }
 }

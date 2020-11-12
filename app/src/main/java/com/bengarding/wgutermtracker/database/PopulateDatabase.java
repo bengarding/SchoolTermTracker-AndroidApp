@@ -19,7 +19,6 @@ public class PopulateDatabase extends AppCompatActivity {
     WguDatabase db;
 
     public void populate(Context context) {
-        db = WguDatabase.getInstance(context);
         dbRepo = new WguDatabaseRepository(getApplication());
         try {
             insertTerms();
@@ -72,8 +71,8 @@ public class PopulateDatabase extends AppCompatActivity {
         Course sampleCourse2 = new Course();
         Course sampleCourse3 = new Course();
         List<Term> termList = dbRepo.getTermList();
-        if (termList == null) {
-            Log.d(TAG, "insertCourses: termList is null");
+        List<Mentor> mentorList = dbRepo.getAllMentors();
+        if (termList == null || mentorList == null) {
             return;
         }
 
@@ -89,7 +88,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Completed");
         sampleCourse1.setNotes("Sample notes");
-        sampleCourse1.setMentorId(1);
+        sampleCourse1.setMentorId(mentorList.get(0).getMentorId());
         sampleCourse1.setTermId(termList.get(0).getTermId());
 
         start.clear();
@@ -101,7 +100,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("Completed");
         sampleCourse2.setNotes("Sample notes");
-        sampleCourse2.setMentorId(2);
+        sampleCourse2.setMentorId(mentorList.get(1).getMentorId());
         sampleCourse2.setTermId(termList.get(0).getTermId());
 
         start.clear();
@@ -113,7 +112,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Dropped");
         sampleCourse3.setNotes("Sample notes");
-        sampleCourse3.setMentorId(3);
+        sampleCourse3.setMentorId(mentorList.get(2).getMentorId());
         sampleCourse3.setTermId(termList.get(0).getTermId());
 
         dbRepo.insert(sampleCourse1, sampleCourse2, sampleCourse3);
@@ -127,7 +126,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Completed");
         sampleCourse1.setNotes("Sample notes");
-        sampleCourse1.setMentorId(1);
+        sampleCourse1.setMentorId(mentorList.get(0).getMentorId());
         sampleCourse1.setTermId(termList.get(1).getTermId());
 
         start.clear();
@@ -139,7 +138,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("In Progress");
         sampleCourse2.setNotes("Sample notes");
-        sampleCourse2.setMentorId(2);
+        sampleCourse2.setMentorId(mentorList.get(1).getMentorId());
         sampleCourse2.setTermId(termList.get(1).getTermId());
 
         start.clear();
@@ -151,7 +150,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Plan to Take");
         sampleCourse3.setNotes("Sample notes");
-        sampleCourse3.setMentorId(3);
+        sampleCourse3.setMentorId(mentorList.get(2).getMentorId());
         sampleCourse3.setTermId(termList.get(1).getTermId());
 
         dbRepo.insert(sampleCourse1, sampleCourse2, sampleCourse3);
@@ -165,7 +164,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse1.setEnd(end.getTime());
         sampleCourse1.setStatus("Plan to Take");
         sampleCourse1.setNotes("Sample notes");
-        sampleCourse1.setMentorId(1);
+        sampleCourse1.setMentorId(mentorList.get(0).getMentorId());
         sampleCourse1.setTermId(termList.get(2).getTermId());
 
         start.clear();
@@ -177,7 +176,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse2.setEnd(end.getTime());
         sampleCourse2.setStatus("Plan to Take");
         sampleCourse2.setNotes("Sample notes");
-        sampleCourse2.setMentorId(2);
+        sampleCourse2.setMentorId(mentorList.get(1).getMentorId());
         sampleCourse2.setTermId(termList.get(2).getTermId());
 
         start.clear();
@@ -189,7 +188,7 @@ public class PopulateDatabase extends AppCompatActivity {
         sampleCourse3.setEnd(end.getTime());
         sampleCourse3.setStatus("Plan to Take");
         sampleCourse3.setNotes("Sample notes");
-        sampleCourse3.setMentorId(3);
+        sampleCourse3.setMentorId(mentorList.get(2).getMentorId());
         sampleCourse3.setTermId(termList.get(2).getTermId());
 
         dbRepo.insert(sampleCourse1, sampleCourse2, sampleCourse3);

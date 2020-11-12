@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WGU Term Tracker</string>
+    <string name="term_tracker">Term Tracker</string>
+    <string name="enter">Enter</string>
+    <string name="clear_database">Clear Data</string>
+    <string name="populate_database">Populate Data</string>
+    <string name="courses">Courses:</string>
+    <string name="courses_in_progress">In Progress:</string>
+    <string name="courses_complete">Completed:</string>
+    <string name="courses_dropped">Dropped:</string>
+    <string name="courses_plan_to_take">Plan to Take:</string>
+    <string name="wgu_logo">WGU logo</string>
 </resources>
