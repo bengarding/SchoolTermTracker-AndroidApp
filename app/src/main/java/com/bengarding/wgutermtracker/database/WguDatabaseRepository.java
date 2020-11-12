@@ -22,17 +22,6 @@ public class WguDatabaseRepository {
     private AssessmentDao assessmentDao;
     ExecutorService executor = WguDatabase.dbWriteExecutor;
 
-    private List<Term> termList;
-    private List<Course> courseList;
-    private List<Assessment> assessmentList;
-    private List<Mentor> mentorList;
-
-    private Term term;
-    private Course course;
-    private Assessment assessment;
-    private Mentor mentor;
-
-
     public WguDatabaseRepository(Application application) {
         WguDatabase db = WguDatabase.getInstance(application);
         termDao = db.termDao();

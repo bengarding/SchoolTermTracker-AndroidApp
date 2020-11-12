@@ -10,4 +10,7 @@
     <string name="courses_dropped">Dropped:</string>
     <string name="courses_plan_to_take">Plan to Take:</string>
     <string name="wgu_logo">WGU logo</string>
+    <string name="school_icon">School icon</string>
+    <string name="start_date">Start Date: </string>
+    <string name="end_date">End Date: </string>
 </resources>

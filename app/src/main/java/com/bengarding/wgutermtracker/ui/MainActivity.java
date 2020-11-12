@@ -1,7 +1,6 @@
 package com.bengarding.wgutermtracker.ui;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +16,7 @@ import com.bengarding.wgutermtracker.database.PopulateDatabase;
 import com.bengarding.wgutermtracker.database.WguDatabaseRepository;
 import com.bengarding.wgutermtracker.entity.Course;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,13 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         set.constrainHeight(btnEnter.getId(), ConstraintSet.WRAP_CONTENT);
         set.constrainWidth(btnEnter.getId(), 0);
-
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            set.connect(btnEnter.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 250);
-        } else {
-            set.connect(btnEnter.getId(), ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 32);
-        }
-
+        set.connect(btnEnter.getId(), ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 16);
         set.connect(btnEnter.getId(), ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT, 32);
         set.connect(btnEnter.getId(), ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, 32);
         btnEnter.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_primary));
@@ -80,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         TextView planToTakeCountView = findViewById(R.id.txtPlanCount);
 
         WguDatabaseRepository dbRepo = new WguDatabaseRepository(getApplication());
-        List<Course> courseList;
+        List<Course> courseList = new ArrayList<>();
         courseList = dbRepo.getAllCourses();
 
         for (Course course : courseList) {
@@ -102,12 +96,16 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-
         courseCountView.setText(String.valueOf(courseCount));
         inProgressCountView.setText(String.valueOf(inProgressCount));
         droppedCountView.setText(String.valueOf(droppedCount));
         completedCountView.setText(String.valueOf(completedCount));
         planToTakeCountView.setText(String.valueOf(planToTakeCount));
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCounts();
     }
 }
