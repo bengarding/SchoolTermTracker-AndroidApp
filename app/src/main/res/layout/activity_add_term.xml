@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical">
 
     <TextView
         android:id="@+id/txtAddTermTitle"
@@ -27,26 +31,26 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_term_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddTermTitle"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAddTermTitle" />
 
     <EditText
         android:id="@+id/editStartTerm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_start_date"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTermName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/editTermName" />
 
     <EditText
         android:id="@+id/editEndTerm"
@@ -55,10 +59,10 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/hint_end_date"
+        android:importantForAutofill="no"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="@+id/editStartTerm"
-        app:layout_constraintTop_toBottomOf="@+id/editStartTerm"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/editStartTerm" />
 
     <Button
         android:id="@+id/button"
@@ -76,3 +80,4 @@
         app:layout_constraintTop_toBottomOf="@+id/editEndTerm" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
