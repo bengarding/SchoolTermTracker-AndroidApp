@@ -1,0 +1,81 @@
+package com.bengarding.wgutermtracker.ui;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bengarding.wgutermtracker.R;
+import com.bengarding.wgutermtracker.entity.Assessment;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Locale;
+
+public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapter.AssessmentViewHolder> {
+
+    class AssessmentViewHolder extends RecyclerView.ViewHolder {
+        private final TextView assessmentName;
+        private final TextView assessmentType;
+        private final TextView assessmentDate;
+
+        public AssessmentViewHolder(@NonNull View itemView) {
+            super(itemView);
+            assessmentName = itemView.findViewById(R.id.txtAssessmentNameItem);
+            assessmentType = itemView.findViewById(R.id.txtAssessmentTypeItem);
+            assessmentDate = itemView.findViewById(R.id.txtAssessmentDateItem);
+        }
+    }
+
+    private final LayoutInflater inflater;
+    private final Context context;
+    private List<Assessment> assessmentList;
+
+    public CourseDetailAdapter(Context context) {
+        inflater = LayoutInflater.from(context);
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public AssessmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = inflater.inflate(R.layout.item_assessment, parent, false);
+        return new AssessmentViewHolder(itemView);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onBindViewHolder(@NonNull AssessmentViewHolder holder, int position) {
+        if (assessmentList != null) {
+            Assessment current = assessmentList.get(position);
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+            holder.assessmentName.setText(current.getName());
+            holder.assessmentType.setText(current.getType());
+            holder.assessmentDate.setText(dateFormat.format(current.getDate()));
+        } else {
+            holder.assessmentName.setText("Unable to get name");
+            holder.assessmentType.setText("Unable to get type");
+            holder.assessmentDate.setText("Unable to get date");
+        }
+    }
+
+    public void setAssessmentList(List<Assessment> assessmentList) {
+        this.assessmentList = assessmentList;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getItemCount() {
+        if (assessmentList != null) {
+            return assessmentList.size();
+        } else {
+            return 0;
+        }
+    }
+}

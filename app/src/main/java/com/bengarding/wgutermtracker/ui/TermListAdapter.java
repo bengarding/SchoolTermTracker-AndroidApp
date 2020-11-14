@@ -2,6 +2,7 @@ package com.bengarding.wgutermtracker.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,24 +19,29 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder> {
+public class TermListAdapter extends RecyclerView.Adapter<TermListAdapter.TermViewHolder> {
+    public static int termId;
 
     class TermViewHolder extends RecyclerView.ViewHolder {
         private final TextView termName;
         private final TextView termStart;
         private final TextView termEnd;
 
+
         public TermViewHolder(@NonNull View itemView) {
             super(itemView);
-            termName = itemView.findViewById(R.id.txtTermName);
-            termStart = itemView.findViewById(R.id.txtTermStartDate);
-            termEnd = itemView.findViewById(R.id.txtTermEndDate);
+            termName = itemView.findViewById(R.id.txtAssessmentNameItem);
+            termStart = itemView.findViewById(R.id.txtAssessmentTypeItem);
+            termEnd = itemView.findViewById(R.id.txtAssessmentDateItem);
 
-//            itemView.setOnClickListener(v -> {
-//                int position = getAdapterPosition();
-//                final Term  current = termList.get(position);
-//                Intent intent = new Intent(context, )
-//            });
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                final Term  current = termList.get(position);
+                Intent intent = new Intent(context, TermDetailActivity.class);
+                termId = current.getTermId();
+                intent.putExtra("termId", termId);
+                context.startActivity(intent);
+            });
         }
     }
 
@@ -43,7 +49,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
     private final Context context;
     private List<Term> termList;
 
-    public TermAdapter(Context context) {
+    public TermListAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
         this.context = context;
     }
@@ -51,7 +57,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
     @NonNull
     @Override
     public TermViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.term_detail, parent, false);
+        View itemView = inflater.inflate(R.layout.item_term, parent, false);
 
         return new TermViewHolder(itemView);
     }

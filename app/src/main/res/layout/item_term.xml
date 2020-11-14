@@ -9,7 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="71dp"
         android:layout_height="72dp"
-        android:contentDescription="@string/school_icon"
+        android:contentDescription="@string/term_icon"
         app:srcCompat="@drawable/ic_baseline_school_24" />
 
     <LinearLayout
@@ -22,7 +22,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtTermName"
+            android:id="@+id/txtAssessmentNameItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -67,14 +67,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtTermStartDate"
+                    android:id="@+id/txtAssessmentTypeItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     tools:text="start" />
 
                 <TextView
-                    android:id="@+id/txtTermEndDate"
+                    android:id="@+id/txtAssessmentDateItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="end" />

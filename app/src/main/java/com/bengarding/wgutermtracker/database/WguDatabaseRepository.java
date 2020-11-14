@@ -38,8 +38,8 @@ public class WguDatabaseRepository {
         return termDao.getAllTerms();
     }
 
-    public Course getCourse(int termId, int courseId) {
-        return courseDao.getCourse(termId, courseId);
+    public Course getCourse(int courseId) {
+        return courseDao.getCourse(courseId);
     }
 
     public List<Course> getAllCourses() {
@@ -54,8 +54,8 @@ public class WguDatabaseRepository {
         return assessmentDao.getAssessment(assessmentId);
     }
 
-    public List<Assessment> getAllAssessments() {
-        return assessmentDao.getAllAssessments();
+    public List<Assessment> getAssessmentList(int courseId) {
+        return assessmentDao.getAssessmentList(courseId);
     }
 
     public Mentor getMentor(int mentorId) {

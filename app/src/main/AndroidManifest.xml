@@ -9,9 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WGUTermTracker">
-        <activity android:name=".ui.TermActivity"
+        <activity android:name=".ui.TermListActivity"
             android:label="Terms"
             android:parentActivityName=".ui.MainActivity"/>
+        <activity android:name=".ui.TermDetailActivity"
+            android:label="Term Details"
+            android:parentActivityName=".ui.TermListActivity"/>
+        <activity android:name=".ui.CourseDetailActivity"
+            android:label="Course Details"
+            android:parentActivityName=".ui.TermDetailActivity"/>
+        <activity android:name=".ui.AddTermActivity"
+            android:label="Add Term"
+            android:parentActivityName=".ui.TermListActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

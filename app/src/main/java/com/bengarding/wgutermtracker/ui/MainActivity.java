@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(currentLayout);
         set.applyTo(currentLayout);
 
-        btnEnter.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, TermActivity.class)));
+        btnEnter.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, TermListActivity.class)));
     }
 
     public void populateData(View view) {
