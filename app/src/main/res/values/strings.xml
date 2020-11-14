@@ -45,4 +45,5 @@
     <string name="valid_date">Enter a valid date</string>
     <string name="cannot_delete_term">Cannot delete a term while courses are assigned to it</string>
     <string name="up_to_five_assessments">You cannot have more than five assessments assigned to any course</string>
+    <string name="share">Share</string>
 </resources>

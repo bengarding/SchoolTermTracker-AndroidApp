@@ -41,4 +41,11 @@ public class EditNotesActivity extends AppCompatActivity {
 
         startActivity(new Intent(this, CourseDetailActivity.class));
     }
+
+    public void share(View view) {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, notes.getText().toString());
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
 }
