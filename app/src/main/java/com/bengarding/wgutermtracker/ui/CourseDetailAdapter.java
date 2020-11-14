@@ -2,6 +2,7 @@ package com.bengarding.wgutermtracker.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,15 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
             assessmentName = itemView.findViewById(R.id.txtAssessmentNameItem);
             assessmentType = itemView.findViewById(R.id.txtAssessmentTypeItem);
             assessmentDate = itemView.findViewById(R.id.txtAssessmentDateItem);
+
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                final Assessment current = assessmentList.get(position);
+                Intent intent = new Intent(context, AddAssessmentActivity.class);
+                intent.putExtra("assessmentId", current.getAssessmentId());
+                intent.putExtra("courseId", current.getCourseId());
+                context.startActivity(intent);
+            });
         }
     }
 

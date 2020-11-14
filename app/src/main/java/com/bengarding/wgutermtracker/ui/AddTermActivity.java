@@ -17,19 +17,18 @@ import com.google.android.material.snackbar.Snackbar;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class AddTermActivity extends AppCompatActivity {
-
+    private static final String TAG = "AddTermActivity";
     WguDatabaseRepository dbRepo;
     private EditText name;
     private EditText startDate;
     private EditText endDate;
     private int termId;
     private Term term;
-    private DateFormat dateFormat =  new SimpleDateFormat("MM/dd/yy", Locale.US);
+    private final DateFormat dateFormat =  new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,11 +59,11 @@ public class AddTermActivity extends AppCompatActivity {
             return;
         }
 
-        Calendar start = Calendar.getInstance();
-        Calendar end = Calendar.getInstance();
+        Date start;
+        Date end;
 
         try {
-            start.setTime(dateFormat.parse(startDate.getText().toString()));
+            start = dateFormat.parse(startDate.getText().toString());
         } catch (ParseException e) {
             Snackbar snackbar = Snackbar.make(view, R.string.valid_start, Snackbar.LENGTH_LONG);
             snackbar.show();
@@ -72,29 +71,24 @@ public class AddTermActivity extends AppCompatActivity {
         }
 
         try {
-            end.setTime(dateFormat.parse(endDate.getText().toString()));
+            end = dateFormat.parse(endDate.getText().toString());
         } catch (ParseException e){
             Snackbar snackbar = Snackbar.make(view, R.string.valid_end, Snackbar.LENGTH_LONG);
             snackbar.show();
             return;
         }
 
-        Date startDate = start.getTime();
-        Date endDate = end.getTime();
-        startDate.setMonth(startDate.getMonth()+1);
-        endDate.setMonth(endDate.getMonth()+1);
-
         if(termId != -1) {
             term.setName(name.getText().toString());
-            term.setStart(startDate);
-            term.setEnd(endDate);
+            term.setStart(start);
+            term.setEnd(end);
 
             dbRepo.update(term);
         } else {
             Term term = new Term();
             term.setName(name.getText().toString());
-            term.setStart(startDate);
-            term.setEnd(endDate);
+            term.setStart(start);
+            term.setEnd(end);
 
             dbRepo.insert(term);
         }

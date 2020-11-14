@@ -32,11 +32,17 @@
     <string name="edit_details">Edit</string>
     <string name="delete">Delete</string>
     <string name="hint_term_name">Term Name</string>
+    <string name="hint_course_name">Course Name</string>
+    <string name="hint_assessment_name">Assessment Name</string>
     <string name="hint_start_date">Start Date</string>
     <string name="hint_end_date">End Date</string>
+    <string name="hint_date">Date</string>
     <string name="save">Save</string>
     <string name="all_fields_required">All fields are required</string>
+    <string name="all_fields_except_notes">All fields are required except for notes</string>
     <string name="valid_start">Enter a valid start date</string>
     <string name="valid_end">Enter a valid end date</string>
+    <string name="valid_date">Enter a valid date</string>
     <string name="cannot_delete_term">Cannot delete a term while courses are assigned to it</string>
+    <string name="up_to_five_assessments">You cannot have more than five assessments assigned to any course</string>
 </resources>

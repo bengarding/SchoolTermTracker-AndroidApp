@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.bengarding.wgutermtracker">
 
     <application
@@ -9,19 +10,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WGUTermTracker">
-        <activity android:name=".ui.TermListActivity"
+        <activity
+            android:name=".ui.TermListActivity"
             android:label="Terms"
-            android:parentActivityName=".ui.MainActivity"/>
-        <activity android:name=".ui.TermDetailActivity"
+            android:parentActivityName=".ui.MainActivity"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.TermDetailActivity"
             android:label="Term Details"
-            android:parentActivityName=".ui.TermListActivity"/>
-        <activity android:name=".ui.CourseDetailActivity"
+            android:parentActivityName=".ui.TermListActivity"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.CourseDetailActivity"
             android:label="Course Details"
-            android:parentActivityName=".ui.TermDetailActivity"/>
-        <activity android:name=".ui.AddTermActivity"
+            android:parentActivityName=".ui.TermDetailActivity"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.AddTermActivity"
             android:label="Add Term"
             android:parentActivityName=".ui.TermListActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.AddCourseActivity"
+            android:label="Add Course"
+            android:parentActivityName=".ui.TermDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.AddAssessmentActivity"
+            android:label="Add Assessment"
+            android:parentActivityName=".ui.CourseDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.EditNotesActivity"
+            android:label="Edit Notes"
+            android:parentActivityName=".ui.CourseDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="jelly_bean" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

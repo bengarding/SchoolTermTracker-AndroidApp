@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -58,7 +59,7 @@ public class TermDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_term_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -66,11 +67,11 @@ public class TermDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.btnEditTerm) {
+        if (id == R.id.btnEdit) {
             Intent intent = new Intent(this, AddTermActivity.class);
             intent.putExtra("termId", termId);
             startActivity(intent);
-        } else if (id == R.id.btnDeleteTerm) {
+        } else if (id == R.id.btnDelete) {
             if (!dbRepo.getCourseList(termId).isEmpty()) {
                 Snackbar snackbar = Snackbar.make(name, R.string.cannot_delete_term, Snackbar.LENGTH_LONG);
                 snackbar.show();
@@ -80,5 +81,11 @@ public class TermDetailActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addCourse(View view) {
+        Intent intent = new Intent(this, AddCourseActivity.class);
+        intent.putExtra("termId", termId);
+        startActivity(intent);
     }
 }
