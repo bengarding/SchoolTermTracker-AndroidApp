@@ -44,7 +44,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="@string/date" />
+                android:text="@string/start_date" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/end_date" />
 
         </LinearLayout>
 
@@ -61,10 +68,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                tools:text="type" />
+
+            <TextView
+                android:id="@+id/txtAssessmentStartDateItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 tools:text="start" />
 
             <TextView
-                android:id="@+id/txtAssessmentDateItem"
+                android:id="@+id/txtAssessmentEndDateItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="end" />

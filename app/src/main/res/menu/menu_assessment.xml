@@ -2,6 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btnAssessmentNotification1"
-        android:title="@string/date_notification" />
+        android:id="@+id/btnAssessmentStartNotification1"
+        android:title="@string/start_notification" />
+    <item
+        android:id="@+id/btnAssessmentEndNotification1"
+        android:title="@string/end_notification" />
 </menu>

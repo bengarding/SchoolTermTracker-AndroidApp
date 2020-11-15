@@ -31,22 +31,23 @@ public class Assessment {
     @ColumnInfo(name = Constant.ASSESSMENTS_COL_TYPE)
     private String type;
 
-    @ColumnInfo(name = Constant.ASSESSMENTS_COL_DATE)
+    @ColumnInfo(name = Constant.ASSESSMENTS_COL_END_DATE)
     @TypeConverters(DateTypeConverter.class)
-    private Date date;
+    private Date endDate;
 
-    @ColumnInfo(name = Constant.ASSESSMENTS_COL_REMINDER)
-    private String reminder;
+    @ColumnInfo(name = Constant.ASSESSMENTS_COL_START_DATE)
+    @TypeConverters(DateTypeConverter.class)
+    private Date startDate;
 
     @ColumnInfo(name = Constant.ASSESSMENTS_COL_COURSE_ID)
     private int courseId;
 
-    public Assessment(int assessmentId, String name, String type, Date date, String reminder, int courseId) {
+    public Assessment(int assessmentId, String name, String type, Date endDate, Date startDate, int courseId) {
         this.assessmentId = assessmentId;
         this.name = name;
         this.type = type;
-        this.date = date;
-        this.reminder = reminder;
+        this.endDate = endDate;
+        this.startDate = startDate;
         this.courseId = courseId;
     }
 
@@ -78,20 +79,20 @@ public class Assessment {
         this.type = type;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
-    public String getReminder() {
-        return reminder;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setReminder(String reminder) {
-        this.reminder = reminder;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public int getCourseId() {

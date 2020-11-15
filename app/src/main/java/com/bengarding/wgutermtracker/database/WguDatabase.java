@@ -19,7 +19,7 @@ import com.bengarding.wgutermtracker.entity.Term;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Term.class, Course.class, Mentor.class, Assessment.class}, exportSchema = false, version = 3)
+@Database(entities = {Term.class, Course.class, Mentor.class, Assessment.class}, exportSchema = false, version = 1)
 @TypeConverters(DateTypeConverter.class)
 public abstract class WguDatabase extends RoomDatabase {
 

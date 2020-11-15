@@ -199,7 +199,8 @@ public class PopulateDatabase extends AppCompatActivity {
         Assessment sampleAssessment2 = new Assessment();
         Assessment sampleAssessment3 = new Assessment();
 
-        Calendar date = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
 
         List<Term> termList = dbRepo.getTermList();
         if (termList == null) {
@@ -213,71 +214,98 @@ public class PopulateDatabase extends AppCompatActivity {
             return;
         }
 
-        date.clear();
-        date.set(2020, 6, 10);
+        endDate.clear();
+        endDate.set(2020, 6, 10);
+        startDate.clear();
+        startDate.set(2020,6, 1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 6, 20);
+        endDate.clear();
+        endDate.set(2020, 6, 20);
+        startDate.clear();
+        startDate.set(2020,6,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 6, 30);
+        endDate.clear();
+        endDate.set(2020, 6, 30);
+        startDate.clear();
+        startDate.set(2020,6,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2020, 7, 10);
+        endDate.clear();
+        endDate.set(2020, 7, 10);
+        startDate.clear();
+        startDate.set(2020,7,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 7, 20);
+        endDate.clear();
+        endDate.set(2020, 7, 20);
+        startDate.clear();
+        startDate.set(2020,7,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 7, 30);
+        endDate.clear();
+        endDate.set(2020, 7, 30);
+        startDate.clear();
+        startDate.set(2020,7,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2020, 8, 10);
+        endDate.clear();
+        endDate.set(2020, 8, 10);
+        startDate.clear();
+        startDate.set(2020,8,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 8, 20);
+        endDate.clear();
+        endDate.set(2020, 8, 20);
+        startDate.clear();
+        startDate.set(2020,8,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 8, 30);
+        endDate.clear();
+        endDate.set(2020, 8, 30);
+        startDate.clear();
+        startDate.set(2020,8,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
@@ -288,71 +316,98 @@ public class PopulateDatabase extends AppCompatActivity {
             return;
         }
 
-        date.clear();
-        date.set(2020, 9, 10);
+        endDate.clear();
+        endDate.set(2020, 9, 10);
+        startDate.clear();
+        startDate.set(2020,9,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 9, 20);
+        endDate.clear();
+        endDate.set(2020, 9, 20);
+        startDate.clear();
+        startDate.set(2020,9,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 9, 30);
+        endDate.clear();
+        endDate.set(2020, 9, 30);
+        startDate.clear();
+        startDate.set(2020,9,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2020, 10, 10);
+        endDate.clear();
+        endDate.set(2020, 10, 10);
+        startDate.clear();
+        startDate.set(2020,10,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 10, 20);
+        endDate.clear();
+        endDate.set(2020, 10, 20);
+        startDate.clear();
+        startDate.set(2020,10,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 10, 30);
+        endDate.clear();
+        endDate.set(2020, 10, 30);
+        startDate.clear();
+        startDate.set(2020,10,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2020, 11, 10);
+        endDate.clear();
+        endDate.set(2020, 11, 10);
+        startDate.clear();
+        startDate.set(2020,11,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2020, 11, 20);
+        endDate.clear();
+        endDate.set(2020, 11, 20);
+        startDate.clear();
+        startDate.set(2020,11,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2020, 11, 30);
+        endDate.clear();
+        endDate.set(2020, 11, 30);
+        startDate.clear();
+        startDate.set(2020,11,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
@@ -363,71 +418,98 @@ public class PopulateDatabase extends AppCompatActivity {
             return;
         }
 
-        date.clear();
-        date.set(2021, 0, 10);
+        endDate.clear();
+        endDate.set(2021, 0, 10);
+        startDate.clear();
+        startDate.set(2021,0,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2021, 0, 20);
+        endDate.clear();
+        endDate.set(2021, 0, 20);
+        startDate.clear();
+        startDate.set(2021,0,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2021, 0, 30);
+        endDate.clear();
+        endDate.set(2021, 0, 30);
+        startDate.clear();
+        startDate.set(2021,0,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2021, 1, 10);
+        endDate.clear();
+        endDate.set(2021, 1, 10);
+        startDate.clear();
+        startDate.set(2021,1,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2021, 1, 20);
+        endDate.clear();
+        endDate.set(2021, 1, 20);
+        startDate.clear();
+        startDate.set(2021,1,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2021, 1, 30);
+        endDate.clear();
+        endDate.set(2021, 1, 30);
+        startDate.clear();
+        startDate.set(2021,1,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
 
-        date.clear();
-        date.set(2021, 2, 10);
+        endDate.clear();
+        endDate.set(2021, 2, 10);
+        startDate.clear();
+        startDate.set(2021,2,1);
+        sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment1.setDate(date.getTime());
+        sampleAssessment1.setEndDate(endDate.getTime());
         sampleAssessment1.setType("Objective");
 
-        date.clear();
-        date.set(2021, 2, 20);
+        endDate.clear();
+        endDate.set(2021, 2, 20);
+        startDate.clear();
+        startDate.set(2021,2,11);
+        sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment2.setDate(date.getTime());
+        sampleAssessment2.setEndDate(endDate.getTime());
         sampleAssessment2.setType("Performance");
 
-        date.clear();
-        date.set(2021, 2, 30);
+        endDate.clear();
+        endDate.set(2021, 2, 30);
+        startDate.clear();
+        startDate.set(2021,2,21);
+        sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
-        sampleAssessment3.setDate(date.getTime());
+        sampleAssessment3.setEndDate(endDate.getTime());
         sampleAssessment3.setType("Objective");
 
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);

@@ -25,8 +25,8 @@ public class Constant {
     public static final String ASSESSMENTS_COL_ID = "assessment_id";
     public static final String ASSESSMENTS_COL_NAME = "name";
     public static final String ASSESSMENTS_COL_TYPE = "type";
-    public static final String ASSESSMENTS_COL_DATE = "date";
-    public static final String ASSESSMENTS_COL_REMINDER = "reminder";
+    public static final String ASSESSMENTS_COL_START_DATE = "start_date";
+    public static final String ASSESSMENTS_COL_END_DATE = "end_date";
     public static final String ASSESSMENTS_COL_COURSE_ID = "course_id";
 
     public static final String TABLE_MENTOR = "mentors";

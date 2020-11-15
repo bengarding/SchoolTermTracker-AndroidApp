@@ -5,6 +5,9 @@
         android:id="@+id/btnDeleteAssessment"
         android:title="@string/delete" />
     <item
-        android:id="@+id/btnAssessmentNotification"
-        android:title="@string/date_notification" />
+        android:id="@+id/btnAssessmentStartNotification"
+        android:title="@string/start_notification" />
+    <item
+        android:id="@+id/btnAssessmentEndNotification"
+        android:title="@string/end_notification" />
 </menu>

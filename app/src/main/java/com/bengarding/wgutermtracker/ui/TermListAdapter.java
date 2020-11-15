@@ -32,7 +32,7 @@ public class TermListAdapter extends RecyclerView.Adapter<TermListAdapter.TermVi
             super(itemView);
             termName = itemView.findViewById(R.id.txtAssessmentNameItem);
             termStart = itemView.findViewById(R.id.txtAssessmentTypeItem);
-            termEnd = itemView.findViewById(R.id.txtAssessmentDateItem);
+            termEnd = itemView.findViewById(R.id.txtAssessmentEndDateItem);
 
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();

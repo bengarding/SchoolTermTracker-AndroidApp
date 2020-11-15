@@ -24,13 +24,15 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
     class AssessmentViewHolder extends RecyclerView.ViewHolder {
         private final TextView assessmentName;
         private final TextView assessmentType;
-        private final TextView assessmentDate;
+        private final TextView assessmentStartDate;
+        private final TextView assessmentEndDate;
 
         public AssessmentViewHolder(@NonNull View itemView) {
             super(itemView);
             assessmentName = itemView.findViewById(R.id.txtAssessmentNameItem);
             assessmentType = itemView.findViewById(R.id.txtAssessmentTypeItem);
-            assessmentDate = itemView.findViewById(R.id.txtAssessmentDateItem);
+            assessmentStartDate = itemView.findViewById(R.id.txtAssessmentStartDateItem);
+            assessmentEndDate = itemView.findViewById(R.id.txtAssessmentEndDateItem);
 
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();
@@ -67,11 +69,13 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
             DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
             holder.assessmentName.setText(current.getName());
             holder.assessmentType.setText(current.getType());
-            holder.assessmentDate.setText(dateFormat.format(current.getDate()));
+            holder.assessmentStartDate.setText(dateFormat.format(current.getStartDate()));
+            holder.assessmentEndDate.setText(dateFormat.format(current.getEndDate()));
         } else {
             holder.assessmentName.setText("Unable to get name");
             holder.assessmentType.setText("Unable to get type");
-            holder.assessmentDate.setText("Unable to get date");
+            holder.assessmentStartDate.setText("Unable to get stat date");
+            holder.assessmentEndDate.setText("Unable to get end date");
         }
     }
 

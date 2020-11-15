@@ -40,7 +40,8 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
     private Assessment assessment;
 
     private EditText name;
-    private EditText date;
+    private EditText startDate;
+    private EditText endDate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +51,8 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
         dbRepo = new WguDatabaseRepository(getApplication());
         TextView activityTitle = findViewById(R.id.txtAddAssessmentTitle);
         name = findViewById(R.id.editAssessmentName);
-        date = findViewById(R.id.editAssessmentDate);
+        startDate = findViewById(R.id.editAssessmentStartDate);
+        endDate = findViewById(R.id.editAssessmentEndDate);
 
         List<String> typeOptions = new ArrayList<>();
         typeOptions.add("Objective");
@@ -69,7 +71,8 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
             activityTitle.setText(R.string.edit_assessment);
             setTitle(R.string.edit_assessment);
             name.setText(assessment.getName());
-            date.setText(dateFormat.format(assessment.getDate()));
+            startDate.setText(dateFormat.format(assessment.getStartDate()));
+            endDate.setText(dateFormat.format(assessment.getEndDate()));
 
             if (assessment.getType().equals("Objective")) {
                 typeSpinner.setSelection(0);
@@ -81,25 +84,35 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
 
     public void save(View view) {
 
-        if (name.getText().toString().isEmpty() || date.getText().toString().isEmpty()) {
+        if (name.getText().toString().isEmpty() || endDate.getText().toString().isEmpty() || startDate.getText().toString().isEmpty()) {
             Snackbar snackbar = Snackbar.make(view, R.string.all_fields_required, Snackbar.LENGTH_LONG);
             snackbar.show();
             return;
         }
 
-        Date dateEntered;
+        Date endDateEntered;
+        Date startDateEntered;
 
         try {
-            dateEntered = dateFormat.parse(date.getText().toString());
+            endDateEntered = dateFormat.parse(endDate.getText().toString());
         } catch (ParseException e) {
-            Snackbar snackbar = Snackbar.make(view, R.string.valid_date, Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(view, R.string.valid_end, Snackbar.LENGTH_LONG);
+            snackbar.show();
+            return;
+        }
+
+        try {
+            startDateEntered = dateFormat.parse(startDate.getText().toString());
+        } catch (ParseException e) {
+            Snackbar snackbar = Snackbar.make(view, R.string.valid_start, Snackbar.LENGTH_LONG);
             snackbar.show();
             return;
         }
 
         if (assessmentId != -1) {
             assessment.setName(name.getText().toString());
-            assessment.setDate(dateEntered);
+            assessment.setStartDate(startDateEntered);
+            assessment.setEndDate(endDateEntered);
             assessment.setType(type);
 
             dbRepo.update(assessment);
@@ -107,7 +120,8 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
             Assessment assessment = new Assessment();
             assessment.setCourseId(courseId);
             assessment.setName(name.getText().toString());
-            assessment.setDate(dateEntered);
+            assessment.setStartDate(startDateEntered);
+            assessment.setEndDate(endDateEntered);
             assessment.setType(type);
 
             dbRepo.insert(assessment);
@@ -144,13 +158,21 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
             dbRepo.delete(assessment);
             startActivity(new Intent(this, CourseDetailActivity.class));
             return true;
-        } else if (id == R.id.btnAssessmentNotification || id == R.id.btnAssessmentNotification1) {
+        } else if (id == R.id.btnAssessmentStartNotification || id == R.id.btnAssessmentStartNotification1) {
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Assessment starts today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, assessment.getStartDate().getTime(), sender);
+            return true;
+        } else if (id == R.id.btnAssessmentEndNotification || id == R.id.btnAssessmentEndNotification1) {
             Intent intent = new Intent(this, Receiver.class);
             intent.putExtra("title", name.getText().toString());
             intent.putExtra("text", "Assessment is due today");
             PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            alarmManager.set(AlarmManager.RTC_WAKEUP, assessment.getDate().getTime(), sender);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, assessment.getEndDate().getTime(), sender);
             return true;
         }
         return super.onOptionsItemSelected(item);
