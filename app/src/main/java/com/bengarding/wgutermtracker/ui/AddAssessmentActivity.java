@@ -1,5 +1,7 @@
 package com.bengarding.wgutermtracker.ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -128,6 +130,8 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (assessmentId != -1) {
+            getMenuInflater().inflate(R.menu.menu_assessment_full, menu);
+        } else {
             getMenuInflater().inflate(R.menu.menu_assessment, menu);
         }
         return true;
@@ -135,9 +139,19 @@ public class AddAssessmentActivity extends AppCompatActivity implements AdapterV
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.btnDeleteAssessment) {
+        int id = item.getItemId();
+        if (id == R.id.btnDeleteAssessment) {
             dbRepo.delete(assessment);
             startActivity(new Intent(this, CourseDetailActivity.class));
+            return true;
+        } else if (id == R.id.btnAssessmentNotification || id == R.id.btnAssessmentNotification1) {
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Assessment is due today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, assessment.getDate().getTime(), sender);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

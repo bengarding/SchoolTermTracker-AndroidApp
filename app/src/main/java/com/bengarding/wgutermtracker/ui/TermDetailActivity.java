@@ -1,5 +1,7 @@
 package com.bengarding.wgutermtracker.ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +29,9 @@ public class TermDetailActivity extends AppCompatActivity {
     private final WguDatabaseRepository dbRepo = new WguDatabaseRepository(getApplication());
     private int termId;
     TextView name;
+    TextView startDate;
+    TextView endDate;
+    Term term;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,8 @@ public class TermDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_term_detail);
 
         name = findViewById(R.id.txtNameTermDetail);
-        TextView startDate = findViewById(R.id.txtCourseStartDetail);
-        TextView endDate = findViewById(R.id.txtCourseEndDetail);
+        startDate = findViewById(R.id.txtCourseStartDetail);
+        endDate = findViewById(R.id.txtCourseEndDetail);
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
 
         RecyclerView recyclerView = findViewById(R.id.assessmentRecyclerView);
@@ -49,7 +54,7 @@ public class TermDetailActivity extends AppCompatActivity {
         if (termId == -1) {
             termId = TermListAdapter.termId;
         }
-        Term term = dbRepo.getTerm(termId);
+        term = dbRepo.getTerm(termId);
         adapter.setCourseList(dbRepo.getCourseList(termId));
         setTitle(term.getName());
         name.setText(term.getName());
@@ -71,6 +76,7 @@ public class TermDetailActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AddTermActivity.class);
             intent.putExtra("termId", termId);
             startActivity(intent);
+            return true;
         } else if (id == R.id.btnDelete) {
             if (!dbRepo.getCourseList(termId).isEmpty()) {
                 Snackbar snackbar = Snackbar.make(name, R.string.cannot_delete_term, Snackbar.LENGTH_LONG);
@@ -79,7 +85,26 @@ public class TermDetailActivity extends AppCompatActivity {
                 dbRepo.delete(dbRepo.getTerm(termId));
                 startActivity(new Intent(this, TermListActivity.class));
             }
+            return true;
+        } else if (id == R.id.btnStartNotification){
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Term is starting today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, term.getStart().getTime(), sender);
+            return true;
+        } else if (id == R.id.btnEndNotification){
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Term is ending today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, term.getEnd().getTime(), sender);
+            return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 

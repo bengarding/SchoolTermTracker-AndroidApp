@@ -46,4 +46,9 @@
     <string name="cannot_delete_term">Cannot delete a term while courses are assigned to it</string>
     <string name="up_to_five_assessments">You cannot have more than five assessments assigned to any course</string>
     <string name="share">Share</string>
+    <string name="channel_name">wgu_term_tracker</string>
+    <string name="channel_description">Notifications for Term Tracker</string>
+    <string name="start_notification">Create Start Date Notification</string>
+    <string name="end_notification">Create End Date Notification</string>
+    <string name="date_notification">Create Notification on Date Entered</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.bengarding.wgutermtracker.ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,13 +28,15 @@ import java.util.Locale;
 public class CourseDetailActivity extends AppCompatActivity {
     private WguDatabaseRepository dbRepo = new WguDatabaseRepository(getApplication());
     public static int courseId;
+    TextView name;
+    Course course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
 
-        TextView name = findViewById(R.id.txtCourseNameDetail);
+        name = findViewById(R.id.txtCourseNameDetail);
         TextView start = findViewById(R.id.txtCourseStartDetail);
         TextView end = findViewById(R.id.txtCourseEndDetail);
         TextView status = findViewById(R.id.txtCourseStatusDetail);
@@ -52,7 +56,7 @@ public class CourseDetailActivity extends AppCompatActivity {
         if (courseId == -1) {
             courseId = TermDetailAdapter.courseId;
         }
-        Course course = dbRepo.getCourse(courseId);
+        course = dbRepo.getCourse(courseId);
         Mentor mentor = dbRepo.getMentor(course.getMentorId());
 
         adapter.setAssessmentList(dbRepo.getAssessmentList(courseId));
@@ -80,11 +84,27 @@ public class CourseDetailActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AddCourseActivity.class);
             intent.putExtra("courseId", courseId);
             startActivity(intent);
+            return true;
         } else if (id == R.id.btnDelete) {
-
             dbRepo.delete(dbRepo.getCourse(courseId));
             startActivity(new Intent(this, TermDetailActivity.class));
-
+            return true;
+        } else if (id == R.id.btnStartNotification){
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Course is starting today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, course.getStart().getTime(), sender);
+            return true;
+        } else if (id == R.id.btnEndNotification){
+            Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra("title", name.getText().toString());
+            intent.putExtra("text", "Course is ending today");
+            PendingIntent sender = PendingIntent.getBroadcast(this, Receiver.alertNumber++, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, course.getEnd().getTime(), sender);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

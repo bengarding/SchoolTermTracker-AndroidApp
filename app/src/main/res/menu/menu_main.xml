@@ -7,4 +7,10 @@
     <item
         android:id="@+id/btnDelete"
         android:title="@string/delete" />
+    <item
+        android:id="@+id/btnStartNotification"
+        android:title="@string/start_notification" />
+    <item
+        android:id="@+id/btnEndNotification"
+        android:title="@string/end_notification" />
 </menu>
