@@ -15,11 +15,9 @@ import java.util.List;
 
 public class PopulateDatabase extends AppCompatActivity {
     private static final String TAG = "PopulateDatabase";
-    private WguDatabaseRepository dbRepo;
-    WguDatabase db;
+    private WguDatabaseRepository dbRepo = new WguDatabaseRepository(getApplication());
 
     public void populate(Context context) {
-        dbRepo = new WguDatabaseRepository(getApplication());
         try {
             insertTerms();
             insertMentors();
@@ -217,7 +215,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 6, 10);
         startDate.clear();
-        startDate.set(2020,6, 1);
+        startDate.set(2020, 6, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
@@ -227,7 +225,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 6, 20);
         startDate.clear();
-        startDate.set(2020,6,11);
+        startDate.set(2020, 6, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
@@ -237,7 +235,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 6, 30);
         startDate.clear();
-        startDate.set(2020,6,21);
+        startDate.set(2020, 6, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
@@ -249,7 +247,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 7, 10);
         startDate.clear();
-        startDate.set(2020,7,1);
+        startDate.set(2020, 7, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
@@ -259,7 +257,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 7, 20);
         startDate.clear();
-        startDate.set(2020,7,11);
+        startDate.set(2020, 7, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
@@ -269,7 +267,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 7, 30);
         startDate.clear();
-        startDate.set(2020,7,21);
+        startDate.set(2020, 7, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
@@ -281,7 +279,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 8, 10);
         startDate.clear();
-        startDate.set(2020,8,1);
+        startDate.set(2020, 8, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
@@ -291,7 +289,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 8, 20);
         startDate.clear();
-        startDate.set(2020,8,11);
+        startDate.set(2020, 8, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
@@ -301,7 +299,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 8, 30);
         startDate.clear();
-        startDate.set(2020,8,21);
+        startDate.set(2020, 8, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
@@ -319,7 +317,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 9, 10);
         startDate.clear();
-        startDate.set(2020,9,1);
+        startDate.set(2020, 9, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
@@ -329,7 +327,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 9, 20);
         startDate.clear();
-        startDate.set(2020,9,11);
+        startDate.set(2020, 9, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
@@ -339,7 +337,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 9, 30);
         startDate.clear();
-        startDate.set(2020,9,21);
+        startDate.set(2020, 9, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
@@ -351,7 +349,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 10, 10);
         startDate.clear();
-        startDate.set(2020,10,1);
+        startDate.set(2020, 10, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
@@ -361,7 +359,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 10, 20);
         startDate.clear();
-        startDate.set(2020,10,11);
+        startDate.set(2020, 10, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
@@ -371,7 +369,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 10, 30);
         startDate.clear();
-        startDate.set(2020,10,21);
+        startDate.set(2020, 10, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
@@ -383,7 +381,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 11, 10);
         startDate.clear();
-        startDate.set(2020,11,1);
+        startDate.set(2020, 11, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
@@ -393,7 +391,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 11, 20);
         startDate.clear();
-        startDate.set(2020,11,11);
+        startDate.set(2020, 11, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
@@ -403,7 +401,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2020, 11, 30);
         startDate.clear();
-        startDate.set(2020,11,21);
+        startDate.set(2020, 11, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
@@ -421,7 +419,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 0, 10);
         startDate.clear();
-        startDate.set(2021,0,1);
+        startDate.set(2021, 0, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(0).getCourseId());
@@ -431,7 +429,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 0, 20);
         startDate.clear();
-        startDate.set(2021,0,11);
+        startDate.set(2021, 0, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(0).getCourseId());
@@ -441,7 +439,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 0, 30);
         startDate.clear();
-        startDate.set(2021,0,21);
+        startDate.set(2021, 0, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(0).getCourseId());
@@ -453,7 +451,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 1, 10);
         startDate.clear();
-        startDate.set(2021,1,1);
+        startDate.set(2021, 1, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(1).getCourseId());
@@ -463,7 +461,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 1, 20);
         startDate.clear();
-        startDate.set(2021,1,11);
+        startDate.set(2021, 1, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(1).getCourseId());
@@ -473,7 +471,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 1, 30);
         startDate.clear();
-        startDate.set(2021,1,21);
+        startDate.set(2021, 1, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(1).getCourseId());
@@ -485,7 +483,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 2, 10);
         startDate.clear();
-        startDate.set(2021,2,1);
+        startDate.set(2021, 2, 1);
         sampleAssessment1.setStartDate(startDate.getTime());
         sampleAssessment1.setName("Quiz");
         sampleAssessment1.setCourseId(courseList.get(2).getCourseId());
@@ -495,7 +493,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 2, 20);
         startDate.clear();
-        startDate.set(2021,2,11);
+        startDate.set(2021, 2, 11);
         sampleAssessment2.setStartDate(startDate.getTime());
         sampleAssessment2.setName("Project");
         sampleAssessment2.setCourseId(courseList.get(2).getCourseId());
@@ -505,7 +503,7 @@ public class PopulateDatabase extends AppCompatActivity {
         endDate.clear();
         endDate.set(2021, 2, 30);
         startDate.clear();
-        startDate.set(2021,2,21);
+        startDate.set(2021, 2, 21);
         sampleAssessment3.setStartDate(startDate.getTime());
         sampleAssessment3.setName("Final Exam");
         sampleAssessment3.setCourseId(courseList.get(2).getCourseId());
@@ -515,23 +513,25 @@ public class PopulateDatabase extends AppCompatActivity {
         dbRepo.insert(sampleAssessment1, sampleAssessment2, sampleAssessment3);
     }
 
-    private void insertMentors() {
-        Mentor sampleMentor1 = new Mentor();
-        Mentor sampleMentor2 = new Mentor();
-        Mentor sampleMentor3 = new Mentor();
+    public void insertMentors() {
+        if (dbRepo.getAllMentors().isEmpty()) {
+            Mentor sampleMentor1 = new Mentor();
+            Mentor sampleMentor2 = new Mentor();
+            Mentor sampleMentor3 = new Mentor();
 
-        sampleMentor1.setName("John Hammond");
-        sampleMentor1.setPhone("122-456-7895");
-        sampleMentor1.setEmail("john@ingen.com");
+            sampleMentor1.setName("John Hammond");
+            sampleMentor1.setPhone("122-456-7895");
+            sampleMentor1.setEmail("john@ingen.com");
 
-        sampleMentor2.setName("Ian Malcolm");
-        sampleMentor2.setPhone("485-985-5415");
-        sampleMentor2.setEmail("ian@dinos.com");
+            sampleMentor2.setName("Ian Malcolm");
+            sampleMentor2.setPhone("485-985-5415");
+            sampleMentor2.setEmail("ian@dinos.com");
 
-        sampleMentor3.setName("Ellie Sattler");
-        sampleMentor3.setPhone("541-541-9541");
-        sampleMentor3.setEmail("ellie@fossils.com");
+            sampleMentor3.setName("Ellie Sattler");
+            sampleMentor3.setPhone("541-541-9541");
+            sampleMentor3.setEmail("ellie@fossils.com");
 
-        dbRepo.insert(sampleMentor1, sampleMentor2, sampleMentor3);
+            dbRepo.insert(sampleMentor1, sampleMentor2, sampleMentor3);
+        }
     }
 }

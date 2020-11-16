@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bengarding.wgutermtracker.R;
+import com.bengarding.wgutermtracker.database.PopulateDatabase;
 import com.bengarding.wgutermtracker.database.WguDatabaseRepository;
 
 public class TermListActivity extends AppCompatActivity {
@@ -28,6 +29,10 @@ public class TermListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter.setTermList(dbRepo.getTermList());
+        if(dbRepo.getAllMentors().isEmpty()) {
+            PopulateDatabase populateDatabase = new PopulateDatabase();
+            populateDatabase.insertMentors();
+        }
     }
 
     public void addTerm(View view) {

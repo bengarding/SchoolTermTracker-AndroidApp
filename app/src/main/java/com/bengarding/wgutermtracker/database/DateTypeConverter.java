@@ -16,7 +16,6 @@ public class DateTypeConverter {
         if (date == null) {
             return null;
         } else {
-//            date.setMonth(date.getMonth()-1);
             return date.getTime();
         }
     }
