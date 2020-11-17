@@ -29,10 +29,8 @@ public class TermListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter.setTermList(dbRepo.getTermList());
-        if(dbRepo.getAllMentors().isEmpty()) {
-            PopulateDatabase populateDatabase = new PopulateDatabase();
-            populateDatabase.insertMentors();
-        }
+        PopulateDatabase populateDatabase = new PopulateDatabase();
+        populateDatabase.insertMentors();
     }
 
     public void addTerm(View view) {
