@@ -54,6 +54,17 @@
             android:parentActivityName=".ui.CourseDetailActivity"
             android:windowSoftInputMode="adjustResize"
             tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.MentorListActivity"
+            android:label="Mentor List"
+            android:parentActivityName=".ui.TermListActivity"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".ui.AddMentorActivity"
+            android:label="Add Mentor"
+            android:parentActivityName=".ui.MentorListActivity"
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="jelly_bean" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

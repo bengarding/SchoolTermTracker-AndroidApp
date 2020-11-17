@@ -109,8 +109,13 @@ public class TermDetailActivity extends AppCompatActivity {
     }
 
     public void addCourse(View view) {
-        Intent intent = new Intent(this, AddCourseActivity.class);
-        intent.putExtra("termId", termId);
-        startActivity(intent);
+        if(dbRepo.getAllMentors().isEmpty()){
+            Snackbar snackbar = Snackbar.make(view, R.string.cannot_add_course, Snackbar.LENGTH_LONG);
+            snackbar.show();
+        } else {
+            Intent intent = new Intent(this, AddCourseActivity.class);
+            intent.putExtra("termId", termId);
+            startActivity(intent);
+        }
     }
 }

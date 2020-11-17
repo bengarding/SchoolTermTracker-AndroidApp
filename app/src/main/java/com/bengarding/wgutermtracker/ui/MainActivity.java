@@ -21,12 +21,15 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    PopulateDatabase populateDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         updateCounts();
 
+        populateDatabase = new PopulateDatabase();
         ConstraintLayout currentLayout = findViewById(R.id.constraintLayout);
         ConstraintSet set = new ConstraintSet();
         Button btnEnter = new Button(this);
@@ -46,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
         set.applyTo(currentLayout);
 
         btnEnter.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, TermListActivity.class)));
+
+        populateDatabase.insertMentors();
     }
 
     public void populateData(View view) {
-        PopulateDatabase populateDatabase = new PopulateDatabase();
         populateDatabase.populate(MainActivity.this);
         updateCounts();
     }

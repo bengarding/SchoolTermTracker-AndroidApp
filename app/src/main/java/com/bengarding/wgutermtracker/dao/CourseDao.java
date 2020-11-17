@@ -16,14 +16,11 @@ public interface CourseDao {
     @Query("SELECT * FROM courses WHERE term_id=:termId ORDER BY course_id")
     List<Course> getCourseList(int termId);
 
-//    @Query("SELECT * FROM courses WHERE term_id=:termId AND course_id = :courseId")
-//    Course getCourse(int termId, int courseId);
+    @Query("SELECT * FROM courses WHERE mentor_id=:mentorId")
+    List<Course> getCourseListForMentor(int mentorId);
 
     @Query("SELECT * FROM courses WHERE course_id = :courseId")
     Course getCourse(int courseId);
-
-//    @Query("INSERT INTO courses (term_id, name) VALUES(:termId, \"Course Name\"); ")
-//    void addCourse(int termId);
 
     @Query("SELECT * FROM courses")
     List<Course> getAllCourses();

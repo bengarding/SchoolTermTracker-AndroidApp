@@ -19,6 +19,7 @@ public class PopulateDatabase extends AppCompatActivity {
 
     public void populate(Context context) {
         try {
+            dbRepo.nukeAllTables();
             insertTerms();
             insertMentors();
             insertCourses();

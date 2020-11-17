@@ -12,13 +12,13 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/txtAssessmentNameItem"
+        android:id="@+id/txtMentorNameItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:text="Assessment name" />
+        tools:text="Mentor name" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +37,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="0"
-                android:text="@string/type" />
+                android:text="@string/mentor_phone" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="@string/start_date" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="@string/end_date" />
+                android:text="@string/mentor_email" />
 
         </LinearLayout>
 
@@ -68,19 +61,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                tools:text="type" />
+                tools:text="phone" />
 
             <TextView
                 android:id="@+id/txtMentorEmailItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="start" />
+                tools:text="email" />
 
-            <TextView
-                android:id="@+id/txtAssessmentEndDateItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="end" />
         </LinearLayout>
 
 

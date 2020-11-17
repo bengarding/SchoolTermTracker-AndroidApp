@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class AddTermActivity extends AppCompatActivity {
-    private static final String TAG = "AddTermActivity";
     WguDatabaseRepository dbRepo;
     private EditText name;
     private EditText startDate;

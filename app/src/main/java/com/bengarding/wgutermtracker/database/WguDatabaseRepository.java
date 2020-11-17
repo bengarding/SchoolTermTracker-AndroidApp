@@ -50,6 +50,10 @@ public class WguDatabaseRepository {
         return courseDao.getCourseList(termId);
     }
 
+    public List<Course> getCourseListForMentor(int mentorId){
+        return courseDao.getCourseListForMentor(mentorId);
+    }
+
     public Assessment getAssessment(int assessmentId) {
         return assessmentDao.getAssessment(assessmentId);
     }

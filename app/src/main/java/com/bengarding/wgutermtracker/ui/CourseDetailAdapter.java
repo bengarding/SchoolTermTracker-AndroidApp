@@ -30,8 +30,8 @@ public class CourseDetailAdapter extends RecyclerView.Adapter<CourseDetailAdapte
         public AssessmentViewHolder(@NonNull View itemView) {
             super(itemView);
             assessmentName = itemView.findViewById(R.id.txtAssessmentNameItem);
-            assessmentType = itemView.findViewById(R.id.txtAssessmentTypeItem);
-            assessmentStartDate = itemView.findViewById(R.id.txtAssessmentStartDateItem);
+            assessmentType = itemView.findViewById(R.id.txtMentorPhoneItem);
+            assessmentStartDate = itemView.findViewById(R.id.txtMentorEmailItem);
             assessmentEndDate = itemView.findViewById(R.id.txtAssessmentEndDateItem);
 
             itemView.setOnClickListener(v -> {

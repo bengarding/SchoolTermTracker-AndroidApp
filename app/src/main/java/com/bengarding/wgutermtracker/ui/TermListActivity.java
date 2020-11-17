@@ -2,14 +2,16 @@ package com.bengarding.wgutermtracker.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bengarding.wgutermtracker.R;
-import com.bengarding.wgutermtracker.database.PopulateDatabase;
 import com.bengarding.wgutermtracker.database.WguDatabaseRepository;
 
 public class TermListActivity extends AppCompatActivity {
@@ -29,12 +31,23 @@ public class TermListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter.setTermList(dbRepo.getTermList());
-        PopulateDatabase populateDatabase = new PopulateDatabase();
-        populateDatabase.insertMentors();
     }
 
     public void addTerm(View view) {
-        Intent intent = new Intent(this, AddTermActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, AddTermActivity.class));
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_term_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.btnViewMentors) {
+            startActivity(new Intent(this, MentorListActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

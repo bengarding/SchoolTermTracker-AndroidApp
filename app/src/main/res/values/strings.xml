@@ -17,9 +17,12 @@
     <string name="add_term">Add Term</string>
     <string name="add_course">Add Course</string>
     <string name="add_assessment">Add Assessment</string>
+    <string name="add_mentor">Add Mentor</string>
     <string name="edit_term">Edit Term</string>
     <string name="edit_course">Edit Course</string>
     <string name="edit_assessment">Edit Assessment</string>
+    <string name="edit_mentor">Edit Mentor</string>
+    <string name="view_mentors">View Mentors</string>
     <string name="start_date">Start Date: </string>
     <string name="end_date">End Date: </string>
     <string name="type">Type: </string>
@@ -34,9 +37,11 @@
     <string name="hint_term_name">Term Name</string>
     <string name="hint_course_name">Course Name</string>
     <string name="hint_assessment_name">Assessment Name</string>
+    <string name="hint_mentor_name">Mentor Name</string>
     <string name="hint_start_date">Start Date</string>
     <string name="hint_end_date">End Date</string>
-    <string name="hint_date">Date</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_email">Email</string>
     <string name="save">Save</string>
     <string name="all_fields_required">All fields are required</string>
     <string name="all_fields_except_notes">All fields are required except for notes</string>
@@ -44,6 +49,9 @@
     <string name="valid_end">Enter a valid end date</string>
     <string name="valid_date">Enter a valid date</string>
     <string name="cannot_delete_term">Cannot delete a term while courses are assigned to it</string>
+    <string name="cannot_delete_mentor">Cannot delete. There must be at least one mentor</string>
+    <string name="cannot_delete_mentor_with_courses">Cannot delete a mentor while they are assigned to any course</string>
+    <string name="cannot_add_course">You must add at least one mentor before adding any courses</string>
     <string name="up_to_five_assessments">You cannot have more than five assessments assigned to any course</string>
     <string name="share">Share</string>
     <string name="channel_name">wgu_term_tracker</string>
