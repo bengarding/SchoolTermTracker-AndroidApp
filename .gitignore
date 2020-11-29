@@ -1,5 +1,10 @@
 *.iml
 .gradle
+/.idea/
+settings.gradle
+build.gradle
+.gitignore
+
 /local.properties
 /.idea/caches
 /.idea/libraries
