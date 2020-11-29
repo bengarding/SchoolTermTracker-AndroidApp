@@ -21,6 +21,8 @@ IDE: Android Studio 4.1.1
 
 JDK: 1.8
 
+Room 2.2.5
+
 Target SDK: 30
 
 Min SDK: 14
